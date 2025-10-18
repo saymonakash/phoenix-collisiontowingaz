@@ -9,16 +9,16 @@ const PhoenixFooter = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div>
             <div className="flex items-center gap-3 mb-5">
-              <a href="/phoenix" className="flex items-center gap-2">
+              <a href="/" className="flex items-center gap-2">
                 <img
                   src={logo.src}
-                  alt="Collision Towing Phoenix logo"
+                  alt="Collision Towing AZ logo"
                   className="h-10 w-auto object-contain"
                 />
               </a>
               <div>
                 <h3 className="text-lg font-bold">
-                  Collision Towing Phoenix
+                  Collision Towing AZ
                 </h3>
                 <p className="text-sm text-primary-foreground/70 dark:text-white/70">
                   Your Local Towing Experts
@@ -60,7 +60,7 @@ const PhoenixFooter = () => {
         </div>
         <div className="border-t border-primary-foreground/20 dark:border-white/20 mt-10 pt-8 text-center">
           <p className="text-primary-foreground/70 dark:text-white/70">
-            © {year} Collision Towing Phoenix. All rights reserved.
+            © {year} Collision Towing AZ. All rights reserved.
           </p>
         </div>
       </div>

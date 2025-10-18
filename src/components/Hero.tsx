@@ -4,7 +4,7 @@ import heroTowing from '@/assets/hero-towing.jpg';
 
 const PhoenixHero = () => {
   return (
-    <section id="phoenix-hero" className="relative py-20 md:py-32 bg-cover bg-center" style={{backgroundImage: `url(${heroTowing.src})`}}>
+    <section id="home" className="relative py-20 md:py-32 bg-cover bg-center" style={{backgroundImage: `url(${heroTowing.src})`}}>
       <div className="absolute inset-0 bg-black/60"></div>
       <div className="container mx-auto px-4 relative text-center text-white">
         <h1 className="text-4xl md:text-6xl font-bold mb-4">Towing & Roadside Assistance in Phoenix, AZ</h1>

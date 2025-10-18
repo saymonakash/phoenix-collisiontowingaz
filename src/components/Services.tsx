@@ -26,10 +26,10 @@ const PhoenixServices = () => {
   ];
 
   return (
-    <section id="phoenix-services" className="py-20 bg-white dark:bg-gray-900">
+    <section id="services" className="py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold">Our Services in Phoenix</h2>
+          <h2 className="text-3xl md:text-4xl font-bold">Our Services</h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 mt-4">We offer a wide range of services to meet your needs.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

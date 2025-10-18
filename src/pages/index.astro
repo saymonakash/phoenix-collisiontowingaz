@@ -1,10 +1,10 @@
 ---
-import PhoenixHeader from "@/components/PhoenixHeader";
-import PhoenixHero from "@/components/PhoenixHero";
-import PhoenixServices from "@/components/PhoenixServices";
-import PhoenixCostCalculator from "@/components/PhoenixCostCalculator";
-import PhoenixContact from "@/components/PhoenixContact";
-import PhoenixFooter from "@/components/PhoenixFooter";
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import Services from "@/components/Services";
+import CostCalculator from "@/components/CostCalculator";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 import StickyCallButton from "@/components/StickyCallButton";
 import Layout from "@/layouts/Layout.astro";
 
@@ -20,12 +20,12 @@ const seoData = {
 
 <Layout {...seoData}>
   <div class="min-h-screen overflow-hidden">
-    <PhoenixHeader client:load />
-    <PhoenixHero client:load />
-    <PhoenixServices client:load />
-    <PhoenixCostCalculator client:load />
-    <PhoenixContact client:load />
-    <PhoenixFooter client:load />
+    <Header client:load />
+    <Hero client:load />
+    <Services client:load />
+    <CostCalculator client:load />
+    <Contact client:load />
+    <Footer client:load />
     <StickyCallButton client:load />
   </div>
 </Layout>

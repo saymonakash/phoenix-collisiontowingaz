@@ -32,12 +32,12 @@ const PhoenixHeader = () => {
           >
             <img
               src={logo.src}
-              alt="Collision Towing Phoenix Logo"
+              alt="Collision Towing AZ Logo"
               className={`w-auto object-contain transition-all ${
                 isSticky ? "h-10" : "h-14"
               }`}
             />
-             <span className="text-xl font-bold text-white">Collision Towing Phoenix</span>
+             <span className="text-xl font-bold text-white">Collision Towing AZ</span>
           </a>
           <Button
             variant="secondary"
