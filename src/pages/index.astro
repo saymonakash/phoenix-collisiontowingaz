@@ -1,43 +1,31 @@
 ---
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import CostCalculator from "@/components/CostCalculator";
-import About from "@/components/About";
-// import Gallery from "@/components/Gallery";
-import Testimonials from "@/components/Testimonials";
-import FAQ from "@/components/FAQ";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import PhoenixHeader from "@/components/PhoenixHeader";
+import PhoenixHero from "@/components/PhoenixHero";
+import PhoenixServices from "@/components/PhoenixServices";
+import PhoenixCostCalculator from "@/components/PhoenixCostCalculator";
+import PhoenixContact from "@/components/PhoenixContact";
+import PhoenixFooter from "@/components/PhoenixFooter";
 import StickyCallButton from "@/components/StickyCallButton";
 import Layout from "@/layouts/Layout.astro";
 
 export const prerender = true;
 
 const seoData = {
-  title:
-    "Collision Towing AZ - 24/7 Emergency Towing & Roadside Assistance in Phoenix",
-  description:
-    "Professional 24/7 towing and roadside assistance in Phoenix, Arizona. Fast response times, competitive rates, and expert service for accidents, breakdowns, and emergencies. Call now for immediate help!",
-  keywords:
-    "towing service Phoenix, roadside assistance Arizona, emergency towing Phoenix, accident recovery, flatbed towing, Phoenix tow truck, 24/7 towing Arizona, vehicle recovery Phoenix, collision towing, breakdown assistance",
-  ogImage: "/hero-towing.jpg",
+  title: "Towing Service in Phoenix, AZ | Collision Towing AZ",
+  description: "Your local Phoenix towing service. 24/7 emergency towing and roadside assistance in Phoenix, Arizona. Get a free estimate now.",
+  keywords: "towing service Phoenix, Phoenix towing, emergency towing Phoenix, roadside assistance Phoenix, tow truck Phoenix",
   canonicalUrl: "https://collisiontowingaz.com/",
 };
 ---
 
 <Layout {...seoData}>
   <div class="min-h-screen overflow-hidden">
-    <Header client:only />
-    <Hero client:load />
-    <Testimonials client:load />
-    <Services client:load />
-    <CostCalculator client:load />
-    <About client:load />
-    <!-- <Gallery client:load /> -->
-    <FAQ client:load />
-    <Contact client:load />
-    <Footer client:load />
+    <PhoenixHeader client:load />
+    <PhoenixHero client:load />
+    <PhoenixServices client:load />
+    <PhoenixCostCalculator client:load />
+    <PhoenixContact client:load />
+    <PhoenixFooter client:load />
     <StickyCallButton client:load />
   </div>
 </Layout>
