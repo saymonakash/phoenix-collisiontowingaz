@@ -1,0 +1,10 @@
+compatibility_flags = [ "nodejs_compat" ]
+compatibility_date = "2024-09-23"
+
+# Environment variables for production
+[vars]
+# Add your notification email here (replace with your actual email)
+NOTIFICATION_EMAIL = "info@collisiontowingaz.com"
+
+# Secrets (sensitive data) - use wrangler secret put command
+# RESEND_API_KEY will be set as a secret

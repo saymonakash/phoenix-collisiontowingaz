@@ -1,0 +1,277 @@
+---
+import "@/styles/global.css";
+import { Font } from "astro:assets";
+import { Toaster } from "@/components/ui/sonner";
+import LocationButton from "@/components/LocationButton";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  ogImage?: string;
+  canonicalUrl?: string;
+  structuredData?: object;
+}
+
+const {
+  title = "Collision Towing AZ - 24/7 Emergency Towing & Roadside Assistance in Phoenix",
+  description = "Professional 24/7 towing and roadside assistance in Phoenix, Arizona. Fast response times, competitive rates, and expert service for accidents, breakdowns, and emergencies.",
+  keywords = "towing service Phoenix, roadside assistance Arizona, emergency towing, accident recovery, flatbed towing, Phoenix tow truck, 24/7 towing, vehicle recovery",
+  ogImage = "/logo.png",
+  canonicalUrl = Astro.url.href,
+  structuredData,
+} = Astro.props;
+
+const structuredDataDefaults = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://collisiontowingaz.com/#organization",
+  name: "Collision Towing AZ",
+  alternateName: "Collision Towing Arizona",
+  description: description,
+  url: "https://collisiontowingaz.com",
+  telephone: "+1-623-253-8345",
+  email: "info@collisiontowingaz.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Phoenix Metropolitan Area",
+    addressLocality: "Phoenix",
+    addressRegion: "AZ",
+    postalCode: "85001",
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 33.4484,
+    longitude: -112.074,
+  },
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Phoenix",
+      sameAs: "https://en.wikipedia.org/wiki/Phoenix,_Arizona",
+    },
+    {
+      "@type": "City",
+      name: "Scottsdale",
+      sameAs: "https://en.wikipedia.org/wiki/Scottsdale,_Arizona",
+    },
+    {
+      "@type": "City",
+      name: "Tempe",
+      sameAs: "https://en.wikipedia.org/wiki/Tempe,_Arizona",
+    },
+    {
+      "@type": "City",
+      name: "Mesa",
+      sameAs: "https://en.wikipedia.org/wiki/Mesa,_Arizona",
+    },
+    {
+      "@type": "City",
+      name: "Glendale",
+      sameAs: "https://en.wikipedia.org/wiki/Glendale,_Arizona",
+    },
+  ],
+  serviceType: "Towing Service",
+  priceRange: "$$",
+  currenciesAccepted: "USD",
+  paymentAccepted: "Cash, Credit Card, Insurance",
+  openingHours: "Mo-Su 00:00-23:59",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Towing and Roadside Services",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Emergency Towing",
+          description: "24/7 emergency towing services",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Roadside Assistance",
+          description: "Jump starts, tire changes, lockout service",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Accident Recovery",
+          description: "Professional accident and collision recovery",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Fuel Delivery",
+          description: "Emergency fuel delivery service",
+        },
+      },
+    ],
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.8",
+    reviewCount: "127",
+    bestRating: "5",
+    worstRating: "1",
+  },
+  review: [
+    {
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5",
+      },
+      author: {
+        "@type": "Person",
+        name: "Sarah Johnson",
+      },
+      reviewBody:
+        "Quick response time and professional service. They got my car towed safely after my accident.",
+    },
+  ],
+  logo: {
+    "@type": "ImageObject",
+    url: "https://collisiontowingaz.com/logo.png",
+  },
+  image: "https://collisiontowingaz.com/logo.png",
+  sameAs: [
+    "https://www.facebook.com/collisiontowingaz",
+    "https://www.instagram.com/collisiontowingaz",
+    "https://www.linkedin.com/company/collisiontowingaz",
+  ],
+};
+
+const finalStructuredData = structuredData || structuredDataDefaults;
+---
+
+<!-- <script is:inline>
+  const getThemePreference = () => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  };
+  const isDark = getThemePreference() === "dark";
+  document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+  if (typeof localStorage !== "undefined") {
+    const observer = new MutationObserver(() => {
+      const isDark = document.documentElement.classList.contains("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+  }
+</script> -->
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Collision Towing AZ" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="General" />
+    <meta name="distribution" content="Global" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site).href} />
+    <meta property="og:site_name" content="Collision Towing AZ" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta
+      property="twitter:image"
+      content={new URL(ogImage, Astro.site).href}
+    />
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="US-AZ" />
+    <meta name="geo.placename" content="Phoenix, Arizona" />
+    <meta name="geo.position" content="33.4484;-112.0740" />
+    <meta name="ICBM" content="33.4484, -112.0740" />
+
+    <!-- Local Business -->
+    <meta name="business:hours" content="Mo-Su 00:00-23:59" />
+    <meta name="business:phone" content="+1-623-253-8345" />
+    <meta name="business:city" content="Phoenix" />
+    <meta name="business:state" content="Arizona" />
+    <meta name="business:country" content="United States" />
+
+    <!-- Additional SEO Tags -->
+    <meta name="theme-color" content="#1e40af" />
+    <meta name="msapplication-TileColor" content="#1e40af" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Collision Towing AZ" />
+
+    <!-- Structured Data -->
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(finalStructuredData)}
+    />
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <Font cssVariable="--font-inter" preload />
+
+    <!-- Google tag (gtag.js) -->
+    <script is:inline async defer>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-54ZJLW4K");
+    </script>
+  </head>
+  <body>
+    <main>
+      <slot />
+    </main>
+
+    <LocationButton client:load />
+    <Toaster client:load />
+  </body>
+</html>
