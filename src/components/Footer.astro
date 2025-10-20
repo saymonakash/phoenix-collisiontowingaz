@@ -1,0 +1,89 @@
+---
+import { Image } from "astro:assets";
+import logo from "@/assets/images/logo.png";
+
+const year = new Date().getFullYear();
+const services = [
+  "Emergency Towing",
+  "Roadside Assistance",
+  "Jump Starts",
+  "Accident Recovery",
+];
+
+const phoneIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-secondary mt-1"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>`;
+
+const mapPinIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-secondary mt-1"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>`;
+---
+
+<footer class="py-14 bg-primary text-primary-foreground dark:text-white">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col md:flex-row md:justify-between gap-10">
+      <div class="max-w-sm">
+        <div class="flex items-center gap-3 mb-5">
+          <a href="/" class="flex items-center gap-2">
+            <Image
+              src={logo}
+              alt="Collision Towing AZ logo"
+              class="h-10 w-auto object-contain"
+            />
+          </a>
+          <div>
+            <h3 class="text-lg font-bold">Collision Towing AZ</h3>
+          </div>
+        </div>
+        <p class="text-primary-foreground/80 text-sm">
+          Your trusted partner for towing and roadside assistance in Phoenix,
+          AZ. Available 24/7.
+        </p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4">Our Services</h4>
+        <ul class="space-y-2 text-sm">
+          {
+            services.map((service) => (
+              <li>
+                <a
+                  href="#services"
+                  class="text-primary-foreground/80 hover:text-white hover:underline"
+                >
+                  {service}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <address class="not-italic">
+        <h4 class="font-semibold mb-4">Contact Information</h4>
+        <div class="space-y-4 text-sm">
+          <div class="flex items-start gap-3">
+            <Fragment set:html={phoneIcon} />
+            <div>
+              <a
+                href="tel:6232538345"
+                class="font-semibold hover:text-secondary"
+              >
+                (623) 253-8345
+              </a>
+              <p class="text-primary-foreground/80">24/7 Emergency Line</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <Fragment set:html={mapPinIcon} />
+            <div>
+              <p>Phoenix, AZ</p>
+              <p class="text-primary-foreground/80">
+                Serving the entire metro area
+              </p>
+            </div>
+          </div>
+        </div>
+      </address>
+    </div>
+    <div
+      class="border-t border-primary-foreground/20 dark:border-white/20 mt-10 pt-8 text-center text-sm text-primary-foreground/70"
+    >
+      <p>© {year} Collision Towing AZ. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

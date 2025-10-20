@@ -194,11 +194,11 @@ function PhoenixCostCalculator() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-10">
           <h2 className="text-4xl font-extrabold mb-3 bg-[image:_var(--gradient-hero)] bg-clip-text text-transparent tracking-tight">
-            Phoenix Towing Cost Calculator
+            Instant Towing Estimate
           </h2>
           <div className="h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-primary to-primary/50 mb-3" />
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Get a quick estimate for your towing or roadside assistance needs in Phoenix.
+            Get a quick and transparent cost estimate for your needs in Phoenix. No hidden fees.
           </p>
         </div>
 

@@ -1,10 +1,10 @@
 ---
 import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import Services from "@/components/Services";
+import Hero from "@/components/Hero.astro";
+import Services from "@/components/Services.astro";
 import CostCalculator from "@/components/CostCalculator";
 import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import Footer from "@/components/Footer.astro";
 import StickyCallButton from "@/components/StickyCallButton";
 import Layout from "@/layouts/Layout.astro";
 
@@ -12,8 +12,10 @@ export const prerender = true;
 
 const seoData = {
   title: "Towing Service in Phoenix, AZ | Collision Towing AZ",
-  description: "Your local Phoenix towing service. 24/7 emergency towing and roadside assistance in Phoenix, Arizona. Get a free estimate now.",
-  keywords: "towing service Phoenix, Phoenix towing, emergency towing Phoenix, roadside assistance Phoenix, tow truck Phoenix",
+  description:
+    "Your local Phoenix towing service. 24/7 emergency towing and roadside assistance in Phoenix, Arizona. Get a free estimate now.",
+  keywords:
+    "towing service Phoenix, Phoenix towing, emergency towing Phoenix, roadside assistance Phoenix, tow truck Phoenix",
   canonicalUrl: "https://collisiontowingaz.com/",
 };
 ---

@@ -105,7 +105,7 @@ const PhoenixContact = () => {
             Contact Us in Phoenix
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Need help in Phoenix? Call us 24/7 or fill out the form.
+            Stuck on the road? Fill out the form for a quick callback or call us directly for immediate assistance in Phoenix.
           </p>
         </div>
 

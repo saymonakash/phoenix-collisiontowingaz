@@ -37,13 +37,11 @@ const PhoenixHeader = () => {
                 isSticky ? "h-10" : "h-14"
               }`}
             />
-             <span className="text-xl font-bold text-white">Collision Towing AZ</span>
+            <span className="text-xl font-bold text-white">
+              Collision Towing AZ
+            </span>
           </a>
-          <Button
-            variant="secondary"
-            asChild
-            className="gap-2"
-          >
+          <Button variant="secondary" asChild className="gap-2">
             <a href="tel:+16232538345">
               <Phone className="h-5 w-5" />
               <span>Call Now</span>
