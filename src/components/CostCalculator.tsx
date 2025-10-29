@@ -198,14 +198,16 @@ function PhoenixCostCalculator() {
           </h2>
           <div className="h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-primary to-primary/50 mb-3" />
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Get a quick and transparent cost estimate for your needs in Phoenix. No hidden fees.
+            Get a quick and transparent cost estimate for your needs in Phoenix.
+            No hidden fees.
           </p>
         </div>
 
         <Card className="max-w-4xl mx-auto bg-gradient-card shadow-card border border-primary/10 rounded-2xl">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Truck className="h-5 w-5 text-primary" /> Estimate Your Cost in Phoenix
+              <Truck className="h-5 w-5 text-primary" /> Estimate Your Cost in
+              Phoenix
             </CardTitle>
             <CardDescription>
               Towing: {currency(HOOK_FEE_USD)} hook fee +{" "}
@@ -264,7 +266,7 @@ function PhoenixCostCalculator() {
               </Button>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-2">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2">
               {!isReadyForQuote && (
                 <p className="text-xs text-muted-foreground">
                   Complete all fields to get a quote
