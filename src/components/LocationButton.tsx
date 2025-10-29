@@ -21,6 +21,7 @@ const LocationButton: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showPulse, setShowPulse] = useState(true);
+  const [permissionStatus, setPermissionStatus] = useState<string>("");
 
   // Hide pulse animation after 5 seconds
   useEffect(() => {
@@ -31,19 +32,45 @@ const LocationButton: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  // Check permission status on mount
+  useEffect(() => {
+    const checkPermission = async () => {
+      if ('permissions' in navigator) {
+        try {
+          const result = await navigator.permissions.query({ name: 'geolocation' });
+          setPermissionStatus(result.state);
+          
+          result.addEventListener('change', () => {
+            setPermissionStatus(result.state);
+          });
+        } catch (err) {
+          console.log('Permission API not fully supported');
+        }
+      }
+    };
+    
+    checkPermission();
+  }, []);
+
   const getCurrentLocation = async () => {
     setLoading(true);
     setError(null);
 
     try {
+      // Check if geolocation is supported
+      if (!navigator.geolocation) {
+        throw new Error("Geolocation is not supported by this browser. Please use a modern browser like Chrome, Safari, or Firefox.");
+      }
+
+      // Check if page is served over HTTPS or localhost
+      const isSecureContext = window.isSecureContext;
+      if (!isSecureContext && window.location.hostname !== 'localhost') {
+        console.warn("Geolocation requires HTTPS or localhost");
+      }
+
       // Request geolocation permission
       const position = await new Promise<GeolocationPosition>(
         (resolve, reject) => {
-          if (!navigator.geolocation) {
-            reject(new Error("Geolocation is not supported by this browser"));
-            return;
-          }
-
           navigator.geolocation.getCurrentPosition(resolve, reject, {
             enableHighAccuracy: true,
             timeout: 10000,
@@ -88,14 +115,18 @@ const LocationButton: React.FC = () => {
         switch (err.code) {
           case err.PERMISSION_DENIED:
             setError(
-              "Location access denied. Please enable location services.",
+              "Location access denied. Please enable location permissions in your browser settings.",
             );
             break;
           case err.POSITION_UNAVAILABLE:
-            setError("Location information unavailable.");
+            setError(
+              "Location information unavailable. Please ensure location services are enabled on your device and try again.",
+            );
             break;
           case err.TIMEOUT:
-            setError("Location request timed out.");
+            setError(
+              "Location request timed out. Please check your internet connection and try again.",
+            );
             break;
           default:
             setError("An unknown error occurred while retrieving location.");
@@ -193,11 +224,40 @@ const LocationButton: React.FC = () => {
             )}
 
             {error && (
-              <div className="text-center py-4">
-                <p className="text-red-600 mb-4">{error}</p>
-                <Button onClick={getCurrentLocation} variant="outline">
+              <div className="space-y-4">
+                <div className="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+                  <p className="text-red-700 font-medium mb-2">{error}</p>
+                  <div className="text-sm text-red-600 space-y-1">
+                    <p className="font-medium">Troubleshooting steps:</p>
+                    <ul className="list-disc list-inside space-y-1 ml-2">
+                      <li>Check if location services are enabled on your device</li>
+                      <li>Ensure your browser has permission to access your location</li>
+                      <li>Try refreshing the page and clicking "Allow" when prompted</li>
+                      <li>Make sure you have a stable internet connection</li>
+                      <li>Try using a different browser (Chrome, Safari, Firefox)</li>
+                    </ul>
+                  </div>
+                </div>
+                <Button 
+                  onClick={getCurrentLocation} 
+                  variant="default"
+                  className="w-full"
+                >
+                  <MapPin className="h-4 w-4 mr-2" />
                   Try Again
                 </Button>
+                <div className="bg-blue-50 p-3 rounded-lg border-l-4 border-blue-400">
+                  <p className="text-sm text-blue-700">
+                    <strong>Alternative:</strong> You can still call us directly at{" "}
+                    <a
+                      href="tel:+16232538345"
+                      className="font-medium underline"
+                    >
+                      (623) 253-8345
+                    </a>{" "}
+                    and provide your location verbally.
+                  </p>
+                </div>
               </div>
             )}
 

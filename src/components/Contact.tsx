@@ -112,7 +112,7 @@ const PhoenixContact = () => {
           <CardContent className="p-6 sm:p-8">
             <h3 className="text-2xl font-semibold mt-3">Request a callback</h3>
             <p className="text-sm text-muted-foreground mt-1">
-              Share a few details and we’ll contact you within minutes.
+              Share a few details and we’ll contact you soon.
             </p>
 
             <Form {...form}>
