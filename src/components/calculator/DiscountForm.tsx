@@ -8,32 +8,35 @@ interface DiscountFormProps {
   onDiscountInfoChange: (info: Partial<DiscountInfo>) => void;
 }
 
-const DiscountForm: React.FC<DiscountFormProps> = ({ discountInfo, onDiscountInfoChange }) => {
+const DiscountForm: React.FC<DiscountFormProps> = ({
+  discountInfo,
+  onDiscountInfoChange,
+}) => {
   return (
     <div className="space-y-4">
       <h3 className="text-lg font-semibold">Discounts Available</h3>
-      
+
       <div className="space-y-3">
         <div className="flex items-center space-x-2">
           <Switch
             id="isVeteran"
             checked={discountInfo.isVeteran}
-            onCheckedChange={(checked) => onDiscountInfoChange({ isVeteran: checked })}
+            onCheckedChange={(checked) =>
+              onDiscountInfoChange({ isVeteran: checked, isStudent: false })
+            }
           />
-          <Label htmlFor="isVeteran">
-            Veteran discount (10% off)
-          </Label>
+          <Label htmlFor="isVeteran">Veteran discount (10% off)</Label>
         </div>
-        
+
         <div className="flex items-center space-x-2">
           <Switch
             id="isStudent"
             checked={discountInfo.isStudent}
-            onCheckedChange={(checked) => onDiscountInfoChange({ isStudent: checked })}
+            onCheckedChange={(checked) =>
+              onDiscountInfoChange({ isStudent: checked, isVeteran: false })
+            }
           />
-          <Label htmlFor="isStudent">
-            Student discount (8% off)
-          </Label>
+          <Label htmlFor="isStudent">Student discount (8% off)</Label>
         </div>
       </div>
     </div>

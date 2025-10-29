@@ -19,22 +19,6 @@ import { Phone, MapPin, Loader2 } from "lucide-react";
 
 const PhoenixContact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const contactInfo = [
-    {
-      icon: Phone,
-      title: "Phoenix Emergency Line",
-      info: "(623) 253-8345",
-      description: "24/7 Emergency Towing in Phoenix",
-    },
-    {
-      icon: MapPin,
-      title: "Phoenix Service Area",
-      info: "Phoenix Metro Area",
-      description: "Covering all of Phoenix and suburbs",
-    },
-  ];
-
   const schema = useMemo(
     () =>
       z.object({
