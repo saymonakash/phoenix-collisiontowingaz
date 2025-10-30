@@ -2,6 +2,11 @@
 import { Image } from "astro:assets";
 import logo from "@/assets/images/logo.png";
 
+export interface Props {
+  city?: string;
+}
+const { city = "Phoenix" } = Astro.props;
+
 const year = new Date().getFullYear();
 const services = [
   "Emergency Towing",
@@ -32,7 +37,7 @@ const mapPinIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="2
           </div>
         </div>
         <p class="text-primary-foreground/80 text-sm">
-          Your trusted partner for towing and roadside assistance in Phoenix,
+          Your trusted partner for towing and roadside assistance in {city},
           AZ. Available 24/7.
         </p>
       </div>
@@ -71,7 +76,7 @@ const mapPinIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="2
           <div class="flex items-start gap-3">
             <Fragment set:html={mapPinIcon} />
             <div>
-              <p>Phoenix, AZ</p>
+              <p>{city}, AZ</p>
               <p class="text-primary-foreground/80">
                 Serving the entire metro area
               </p>

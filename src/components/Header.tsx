@@ -4,7 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Phone } from "lucide-react";
 import logo from "@/assets/images/logo.png";
 
-const PhoenixHeader = () => {
+interface HeaderProps {
+  city?: string;
+}
+
+const Header = ({ city = "Phoenix" }: HeaderProps) => {
   const [isSticky, setIsSticky] = useState(false);
   useEffect(() => {
     const handleScroll = () => setIsSticky(window.scrollY > 50);
@@ -14,6 +18,9 @@ const PhoenixHeader = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const citySlug =
+    city.toLowerCase() === "phoenix" ? "/" : `/${city.toLowerCase()}`;
 
   return (
     <header
@@ -27,7 +34,7 @@ const PhoenixHeader = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           <a
-            href="/phoenix"
+            href={citySlug}
             className="flex items-center space-x-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md"
           >
             <img
@@ -53,4 +60,4 @@ const PhoenixHeader = () => {
   );
 };
 
-export default PhoenixHeader;
+export default Header;

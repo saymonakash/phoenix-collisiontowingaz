@@ -17,7 +17,11 @@ import {
 import { toast } from "sonner";
 import { Phone, MapPin, Loader2 } from "lucide-react";
 
-const PhoenixContact = () => {
+interface ContactProps {
+  city?: string;
+}
+
+const Contact = ({ city = "Phoenix" }: ContactProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const schema = useMemo(
     () =>
@@ -56,8 +60,7 @@ const PhoenixContact = () => {
 
       if (response.ok && result.success) {
         toast.success("Request received!", {
-          description:
-            "Thanks! Our dispatcher for Phoenix will reach out shortly.",
+          description: `Thanks! Our dispatcher for ${city} will reach out shortly.`,
           duration: 5000,
         });
         form.reset();
@@ -84,11 +87,11 @@ const PhoenixContact = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 bg-[image:_var(--gradient-hero)] bg-clip-text text-transparent">
-            Contact Us in Phoenix
+            Contact Us in {city}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Stuck on the road? Fill out the form for a quick callback or call us
-            directly for immediate assistance in Phoenix.
+            directly for immediate assistance in {city}.
           </p>
         </div>
 
@@ -144,7 +147,7 @@ const PhoenixContact = () => {
                       <FormLabel>How can we help?</FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="Describe your situation (e.g. location in Phoenix, vehicle, issue)"
+                          placeholder={`Describe your situation (e.g. location in ${city}, vehicle, issue)`}
                           className="min-h-[120px]"
                           {...field}
                         />
@@ -187,4 +190,4 @@ const PhoenixContact = () => {
   );
 };
 
-export default PhoenixContact;
+export default Contact;

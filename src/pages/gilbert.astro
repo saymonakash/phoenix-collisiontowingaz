@@ -10,14 +10,14 @@ import Layout from "@/layouts/Layout.astro";
 
 export const prerender = true;
 
-const city = "Phoenix";
+const city = "Gilbert";
 const seoData = {
-  title: "Towing Service in Phoenix, AZ | Collision Towing AZ",
+  title: `Towing Service in ${city}, AZ | Collision Towing AZ`,
   description:
-    "Your local Phoenix towing service. 24/7 emergency towing and roadside assistance in Phoenix, Arizona. Get a free estimate now.",
+    `Your local ${city} towing service. 24/7 emergency towing and roadside assistance in ${city}, Arizona. Get a free estimate now.`,
   keywords:
-    "towing service Phoenix, Phoenix towing, emergency towing Phoenix, roadside assistance Phoenix, tow truck Phoenix",
-  canonicalUrl: "https://collisiontowingaz.com/",
+    `towing service ${city}, ${city} towing, emergency towing ${city}, roadside assistance ${city}, tow truck ${city}`,
+  canonicalUrl: `https://collisiontowingaz.com/${city.toLowerCase()}`,
 };
 ---
 
